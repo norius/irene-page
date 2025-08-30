@@ -1,13 +1,272 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Spazio per la navbar fissa */
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply font-sans text-architect-800 bg-white dark:text-white dark:bg-architect-900 transition-colors duration-300;
+    overflow-x: hidden; /* Previene scroll orizzontale */
+    /* Assicura che il body abbia sempre l'altezza e larghezza corretta */
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-architect-100 dark:bg-architect-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-architect-400 dark:bg-architect-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-architect-500 dark:bg-architect-500;
+  }
+
+  /* Smooth scrolling per tutti i link interni */
+  a[href^="#"] {
+    scroll-behavior: smooth;
+  }
+
+  /* Assicura che il header sia sempre posizionato correttamente */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    width: 100vw;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn-primary {
+    @apply bg-architect-800 dark:bg-white text-white dark:text-architect-800 px-6 py-3 rounded-none hover:bg-architect-700 dark:hover:bg-architect-100 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-architect-800 dark:text-white border-2 border-architect-800 dark:border-white px-6 py-3 rounded-none hover:bg-architect-800 dark:hover:bg-white hover:text-white dark:hover:text-architect-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-8;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-architect-600 to-architect-800 dark:from-architect-300 dark:to-architect-100 bg-clip-text text-transparent;
+  }
+  
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Pulse animation */
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Parallax container */
+  .parallax {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl;
+  }
+  
+  /* Text reveal animation */
+  .text-reveal {
+    overflow: hidden;
+  }
+  
+  .text-reveal span {
+    display: inline-block;
+    animation: textReveal 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  
+  .text-reveal span:nth-child(1) { animation-delay: 0.1s; }
+  .text-reveal span:nth-child(2) { animation-delay: 0.2s; }
+  .text-reveal span:nth-child(3) { animation-delay: 0.3s; }
+  
+  @keyframes textReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Dark mode specific styles */
+.dark {
+  color-scheme: dark;
+}
+
+/* Loading animation */
+.loading-dots {
+  position: relative;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Mobile menu improvements */
+@media (max-width: 768px) {
+  /* Assicura che il menu mobile non causi scroll orizzontale */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+  
+  /* Migliora la leggibilità del testo su mobile */
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+/* iPhone 14 Pro Max specific optimizations */
+@media (max-width: 430px) {
+  .container-custom {
+    @apply px-4;
+  }
+  
+  /* Assicura che il toggle dark mode sia sempre visibile */
+  .fixed.top-20.right-6 {
+    right: 1rem;
+  }
+  
+  /* Ottimizza il padding del menu mobile */
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Migliora la dimensione dei bottoni per touch */
+  .btn-primary,
+  .btn-secondary {
+    @apply px-4 py-3 text-base;
+  }
+}
+
+/* Focus styles per accessibilità */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-architect-500 ring-offset-2 ring-offset-white dark:ring-offset-architect-900;
+}
+
+/* Animazioni per elementi che entrano nel viewport */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Assicura che il layout sia corretto fin dal primo caricamento */
+#root {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Reset globale per prevenire barre nere */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root, .App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
