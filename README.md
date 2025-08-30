@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+# 🏗️ Irene Architetti - Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Una landing page moderna e professionale per lo studio di architettura Irene Architetti, realizzata con React, TypeScript e Tailwind CSS.
 
-## Available Scripts
+## ✨ Caratteristiche
 
-In the project directory, you can run:
+- **Design Moderno** - Interfaccia pulita e professionale
+- **Responsive Design** - Ottimizzato per tutti i dispositivi
+- **Dark Mode** - Toggle tra tema chiaro e scuro
+- **Animazioni Fluide** - Framer Motion per transizioni eleganti
+- **Performance Ottimizzate** - Build ottimizzato per la produzione
+- **SEO Ready** - Struttura semantica e meta tags
 
-### `npm start`
+## 🚀 Tecnologie Utilizzate
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 18** - Framework principale
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling utility-first
+- **Framer Motion** - Animazioni
+- **Lucide React** - Icone moderne
+- **PostCSS** - Processing CSS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📱 Sezioni
 
-### `npm test`
+1. **Hero Section** - Presentazione principale con video modal
+2. **Chi Siamo** - Storia e valori dello studio
+3. **Servizi** - Offerta di servizi architettonici
+4. **Portfolio** - Galleria progetti con filtri
+5. **Contatti** - Form di contatto e informazioni
+6. **Footer** - Link utili e social
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Installazione
 
-### `npm run build`
+```bash
+# Clona il repository
+git clone https://github.com/tuousername/irene-page.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Entra nella directory
+cd irene-page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Installa le dipendenze
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Avvia il server di sviluppo
+npm start
+```
 
-### `npm run eject`
+## 📦 Script Disponibili
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `npm start` - Avvia il server di sviluppo
+- `npm run build` - Crea il build di produzione
+- `npm test` - Esegue i test
+- `npm run eject` - Ejecta la configurazione (irreversibile)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 Personalizzazione
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Colori
+I colori sono definiti nel file `tailwind.config.js` nella palette `architect`:
+- `architect-50` a `architect-900` - Gradazioni di grigi professionali
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Font
+- **Playfair Display** - Font serif per i titoli
+- **Inter** - Font sans-serif per il testo
 
-## Learn More
+### Animazioni
+Le animazioni sono gestite con Framer Motion e CSS personalizzato.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📱 Responsive Breakpoints
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Mobile** - < 768px
+- **Tablet** - 768px - 1024px
+- **Desktop** - > 1024px
+
+## 🌙 Dark Mode
+
+Il toggle per il dark mode è posizionato in alto a destra e:
+- Salva la preferenza in localStorage
+- Rispetta le preferenze del sistema
+- Applica automaticamente il tema appropriato
+
+## 🚀 Deploy
+
+Il progetto è pronto per il deploy su:
+- **Vercel** (raccomandato)
+- **Netlify**
+- **GitHub Pages**
+- **Firebase Hosting**
+
+## 📄 Licenza
+
+Questo progetto è sotto licenza MIT.
+
+## 👨‍💻 Autore
+
+Creato per Irene Architetti - Studio di Architettura
+
+---
+
+**Nota:** Questo è un progetto demo. Sostituisci i contenuti con quelli reali dello studio prima del deploy in produzione.
